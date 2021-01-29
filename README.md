@@ -2,8 +2,12 @@
 An extremely simple Swedish Television Text TV Client [1,2] for the
 Linux command line. Written as a toy project to learn Rust.
 
-## Compile instructions at
-- https://github.com/oscar-franzen/text-tv-client
+## Compile instructions
+```bash
+git clone https://github.com/oscar-franzen/text-tv-client
+cd text-tv-client
+cargo r --release
+```
 
 # Feedback:
  * OF; <p.oscar.franzen@gmail.com>
