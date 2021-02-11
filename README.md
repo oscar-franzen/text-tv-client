@@ -1,8 +1,11 @@
 ## An extremely simple teletext client
 An extremely simple Swedish Television Text TV Client [1,2] for the
-Linux command line. Written as a toy project to learn Rust.
+Linux command line. Written as a toy project to learn Rust. The actual
+protocol is https since SVT's teletext [3] can also be accessed online.
 
 ## Compile instructions
+A Linux 64 bit executable binary is also provided in the repo root.
+
 ```bash
 git clone https://github.com/oscar-franzen/text-tv-client
 
@@ -30,3 +33,4 @@ The `-u` flag can be used to change the user agent, for example:
 ## References
 1. https://sv.wikipedia.org/wiki/Text-TV
 2. https://en.wikipedia.org/wiki/Teletext
+3. https://www.svt.se/svttext/web/pages/100.html
