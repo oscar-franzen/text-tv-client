@@ -116,20 +116,31 @@ impl Texttv {
 	let re_news = Regex::new("<span class=\"W\">").unwrap();
 	let re_parts = Regex::new("<span class=\"W\">(.*)<a href=\"([0-9]+).html\">[0-9]+</a></span>").unwrap();
 	let re_html = Regex::new("<.*?>").unwrap();
+	let re_trim = Regex::new("^[ *]*").unwrap();
+	let re_tr = Regex::new("^<a href=\"[0-9]+.html\">([0-9]+)</a><span class=\"W\">").unwrap();
 
 	println!("\n");
 	
 	for l in lines {
 	    if re_news.is_match(l) {
-		for q in re_parts.captures_iter(l) {
+		let l = re_trim.replace_all(&l, "");
+		let cap = re_tr.captures(&l);
+
+		let qq : String = match cap {
+		    None => "".to_owned(),
+		    Some(x) => format!("{} ", x.get(1).unwrap().as_str()),
+		};
+		
+		for q in re_parts.captures_iter(&l) {
 		    let title = &q[1];
 		    let index = &q[2];
 
 		    // there might be html tags in the headline
 		    let title = re_html.replace_all(title, "");
 		    let title = title.trim_start();
+		    let title = format!("{}{}", qq, title);
 
-		    let pr = (*old).get(title);
+		    let pr = (*old).get(&title);
 
 		    save.push((&title).to_string());
 
