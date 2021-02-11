@@ -27,6 +27,12 @@ The `-u` flag can be used to change the user agent, for example:
 ./text_tv_cli -u "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:53.0) Gecko/20100101 Firefox/53.0"
 ```
 
+Headlines are changed to green color for new headlines (compared to
+last time the program was executed).
+
+## Is this program useful if I don't know Swedish?
+No.
+
 ## Feedback:
 - OF; <p.oscar.franzen@gmail.com>
 
